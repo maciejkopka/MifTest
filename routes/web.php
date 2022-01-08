@@ -39,6 +39,6 @@ Route::get('insert', 'App\Http\Controllers\TransferController@transfer');
 Route::post('create','App\Http\Controllers\TransferController@insert');
 
 //Admin
-Route::name('admin.')->prefix('admin')->group(function(){
+Route::name('admin.')->middleware(['auth', 'auth.isAdmin'])->prefix('admin')->group(function(){
     Route::resource('/users', UserController::class);
 }); 
