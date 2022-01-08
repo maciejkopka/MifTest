@@ -19,12 +19,12 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Ulica i nr domu') }}</label>
+                            <label for="string" class="col-md-4 col-form-label text-md-end">{{ __('Ulica i nr domu') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <input id="string" type="string" class="form-control @error('string') is-invalid @enderror" name="string" value="{{ old('string') }}" required autocomplete="string">
 
-                                @error('email')
+                                @error('string')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -33,10 +33,10 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Miasto') }}</label>
+                            <label for="string" class="col-md-4 col-form-label text-md-end">{{ __('Miasto') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input id="string" type="string" class="form-control @error('string') is-invalid @enderror" name="string" required autocomplete="new-string">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -46,10 +46,10 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Kod pocztowy') }}</label>
+                            <label for="string" class="col-md-4 col-form-label text-md-end">{{ __('Kod pocztowy') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input id="string" type="string" class="form-control @error('string') is-invalid @enderror" name="string" required autocomplete="new-string">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -59,10 +59,10 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Adres E-mail') }}</label>
+                            <label for="string" class="col-md-4 col-form-label text-md-end">{{ __('Adres E-mail') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input id="string" type="string" class="form-control @error('string') is-invalid @enderror" name="string" required autocomplete="new-string">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
