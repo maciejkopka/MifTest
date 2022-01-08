@@ -19,9 +19,10 @@
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Imię i nazwisko') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" autocomplete="name" autofocus>
-
-                                @error('name')
+                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" 
+                                    value="{{ old('name') }} @isset($user) {{ $user->name }} @endisset" autocomplete="name" autofocus>
+                                
+								@error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -32,7 +33,8 @@
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Adres E-Mail') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email">
+                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" 
+                                value="{{ old('name') }} @isset($user) {{ $user->email }} @endisset" autocomplete="email">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -55,14 +57,18 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="mb-3">
+                        <div class="col-md-2"> 
                             @foreach($roles as $role)
                                 <div class="form-check">
-                                    <input class="form-check-input" name="roles[]"
-                                        type="checkbox" value="{{$role->id }}" id="{{$role->name }}">
-                                    <label class="form-check-label" for="{{$role->name}}">
-                                        {{$role->name}}
-                                    </label>
+                                    <input class="form-check-input" name = "roles[]"
+                                        type="checkbox" value="{{ $role->id }}" id="{{ $role->name }}"
+                                        @isset($user) @if(in_array($role->id, $user->roles->pluck('id')->toArray())) checked @endif @endisset>
+                                        <label class="form-check-label" for="{{ $role->name }}">
+                                            {{ $role->name }}
+                                        </label>
+                                </div>    
+                            @endforeach
+
                         </div>
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
