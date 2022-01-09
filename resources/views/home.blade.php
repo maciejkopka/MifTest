@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
 
 
@@ -20,6 +21,8 @@
     <title>MIFBanking - panel konta</title>
 
   </head>
+  @if (Route::has('login'))
+    @auth
           <!--Karty-->
           <div class="row">
             <div class="col-xl-3 col-sm-6 mb-3">
@@ -57,7 +60,9 @@
                   <div class="card-body-icon">
                     <i class="fas fa-fw fa-list"></i>
                   </div>
-                    <div class="mr-5">Stan konta:9999999999$</div>
+
+                    <div class="mr-5">Stan konta:  </div>
+ 
                     </div>
                  </div>
             </div>
@@ -106,7 +111,8 @@
 
       </div>
   </body>
-
+  @endauth
+@endif
 </html>
 
 @endsection

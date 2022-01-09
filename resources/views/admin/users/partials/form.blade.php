@@ -20,7 +20,7 @@
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" 
-                                    value="{{ old('name') }} @isset($user) {{ $user->name }} @endisset" autocomplete="name" autofocus>
+                                    value="{{ old('name') }} @isset($user) {{ $user->name }} @endisset">
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -34,7 +34,7 @@
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" 
-                                value="{{ old('name') }} @isset($user) {{ $user->email }} @endisset" autocomplete="email">
+                                value="{{ old('name') }} @isset($user) {{ $user->email }} @endisset" >
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">

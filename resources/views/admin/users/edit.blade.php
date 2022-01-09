@@ -7,8 +7,8 @@
 <h1> Edycja </h1>
 <div class="card">
     <form method="POST" action="{{ route('admin.users.update', $user->id) }}">
-    @method('PATCH')
-        @include('admin.users.partials.form')
+        
+        @include('admin.users.partials.form', ['create' => true])
     </form>
 </div>
 @endsection

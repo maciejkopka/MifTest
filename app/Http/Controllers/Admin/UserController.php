@@ -37,7 +37,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.users.create', ['roles' => Role::all()]);
+        //
     }
 
     /**
@@ -48,8 +48,8 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
-    }
+         $user = User::create($request->except(['_token', 'roles']));
+                 }
 
     /**
      * Display the specified resource.
@@ -104,6 +104,8 @@ class UserController extends Controller
     public function destroy($id, Request $request)
     {
         User::destroy($id);
+
+        $request->session()->flash('success', 'Pomyślnie usunięto użytkownika');
 
         return redirect(route('admin.users.index'));
     }

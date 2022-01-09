@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\Admin\UserController;
 
 /*
@@ -34,6 +33,10 @@ Route::get('home', function () {
     $transferhistory = DB::table('Transfer')->get();
 
     return view('home', ['transferhistory' => $transferhistory]);
+
+    $balance = DB::table('user')->get('balance');
+
+    return view('home', ['balance' => $balance]);
 });
 
 Route::get('insert', 'App\Http\Controllers\TransferController@transfer');
@@ -43,3 +46,6 @@ Route::post('create','App\Http\Controllers\TransferController@insert');
 Route::name('admin.')->middleware(['auth', 'auth.isAdmin'])->prefix('admin')->group(function(){
     Route::resource('/users', UserController::class);
 }); 
+Route::group(['prefix' => '/v1', 'as' => 'api'], function () {
+    Route::get('base', [ApiController::class, 'base'])->name('base');
+});
